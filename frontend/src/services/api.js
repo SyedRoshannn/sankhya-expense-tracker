@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Set default endpoint base URL
 const API = axios.create({
-    baseURL: 'http://localhost:5000/api', // Match backend running port
+    baseURL: `${import.meta.env.VITE_API_URL}/api`, // Match backend running port
     headers: {
         'Content-Type': 'application/json',
     },
