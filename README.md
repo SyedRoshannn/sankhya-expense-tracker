@@ -202,3 +202,89 @@ This project was developed responsibly utilizing AI assistance:
 
 ## 13. Developer
 Developed as a comprehensive, production-ready Full-Stack internship/portfolio project demonstrating competency in React dynamics, REST API architecture, and scalable NoSQL database design.
+
+---
+
+## 🗄 Database Schema
+
+The database utilizes MongoDB and Mongoose with two core collections.
+
+### User Model
+- `_id` (ObjectId)
+- `name` (String)
+- `email` (String, unique)
+- `password` (Hashed String) - *Password is hashed using bcrypt before storage.*
+- `createdAt` (Date)
+
+### Expense Model
+- `_id` (ObjectId)
+- `user` (ObjectId, ref: User) - *Expenses are linked to users via ObjectId reference.*
+- `title` (String)
+- `amount` (Number)
+- `category` (String)
+- `date` (Date)
+- `createdAt` (Date)
+
+---
+
+## 📡 API Endpoints
+
+**Backend Base URL:**  
+https://sankhya-expense-tracker.onrender.com
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| **POST** | `/api/auth/register` | Register a new user account | ❌ |
+| **POST** | `/api/auth/login` | Authenticate user & receive JWT token | ❌ |
+| **GET** | `/api/expenses` | Retrieve user expenses | ✅ |
+| **POST** | `/api/expenses` | Create a new transaction | ✅ |
+| **PUT** | `/api/expenses/:id` | Update an existing transaction | ✅ |
+| **DELETE** | `/api/expenses/:id` | Delete a single transaction | ✅ |
+| **GET** | `/api/expenses/summary`| Retrieve total expenses & count | ✅ |
+| **GET** | `/api/expenses/export` | Export expenses data to CSV format | ✅ |
+
+---
+
+## 🏗 Planning & Design Approach
+
+- **Project Structure Separation:** Follows the MVC (Model-View-Controller) architecture in the backend for clean separation of concerns.
+- **JWT-Based Authentication Strategy:** Utilizes stateless JSON Web Tokens for secure session management.
+- **Environment-Based Configuration:** Strict separation of environment variables for local development vs. production deployments.
+- **Pagination Approach:** Implementation of offset-based pagination via MongoDB's `.skip()` and `.limit()` queries.
+- **Deployment Architecture:** 
+  - Frontend hosted on Vercel
+  - Backend hosted on Render
+  - Database managed on MongoDB Atlas
+- **Security Considerations:** Features securely hashed passwords via `bcryptjs`, and robust Express auth middleware for protecting routes.
+
+---
+
+## 🤖 Use of AI Tools
+
+AI tools (ChatGPT) were used for:
+- Brainstorming feature enhancements
+- Improving documentation structure
+- Debugging deployment and configuration issues
+- Reviewing best practices
+
+Core implementation logic, authentication flow, API integration, and deployment configuration were implemented and reviewed manually.
+
+---
+
+## 📱 Responsive Design
+
+- The UI is built purely using **Tailwind CSS**.
+- The layout dynamically adapts for both mobile and desktop viewports.
+- Forms and dashboards are highly optimized for small screens, ensuring mobile accessibility.
+- Advanced Flexbox techniques and responsive Tailwind breakpoints (`md:`, `lg:`) were used.
+- The application was stringently tested across device contexts using Chrome DevTools responsive mode.
+
+---
+
+## 🌍 Live Demo
+
+**Frontend:**  
+https://sankhya-expense-tracker.vercel.app
+
+**Backend:**  
+https://sankhya-expense-tracker.onrender.com
